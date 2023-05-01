@@ -1,11 +1,13 @@
 const Post = require("../model/posts");
 const User = require("../model/users");
-const CustomError = require("../utils/CustomError");
 const asyncHandler = require("../middleware/asyncHandler");
 exports.getPosts = asyncHandler(async (req, res, next) => {
   const posts = await Post.find().populate("auth").sort({ CreatedAt: -1 });
   if (!posts) {
-    CustomError("Post is null", 404);
+    res.status(401).json({
+      success: false,
+      data: "Алдаа гарлаа",
+    });
   }
   res.status(200).json({
     success: true,
@@ -17,7 +19,10 @@ exports.createPost = asyncHandler(async (req, res, next) => {
   console.log(req.user);
   const user = await User.findById(req.user);
   if (!user) {
-    throw new CustomError(`No user found with this ID-${req.user} ..`, 400);
+    res.status(401).json({
+      success: false,
+      data: "Алдаа гарлаа",
+    });
   }
   const post = await Post.create(req.body);
   post.auth = req.user;
@@ -30,7 +35,10 @@ exports.createPost = asyncHandler(async (req, res, next) => {
 exports.getPost = asyncHandler(async (req, res, next) => {
   const posts = await Post.findById(req.params.id).populate("auth");
   if (!posts) {
-    CustomError("Post value is null", 404);
+    res.status(401).json({
+      success: false,
+      data: "Алдаа гарлаа",
+    });
   }
   res.status(200).json({
     success: true,
@@ -40,7 +48,10 @@ exports.getPost = asyncHandler(async (req, res, next) => {
 exports.getAuthPost = asyncHandler(async (req, res, next) => {
   const posts = await Post.find({ auth: req.params.id });
   if (!posts) {
-    CustomError("Post value is null", 404);
+    res.status(401).json({
+      success: false,
+      data: "Алдаа гарлаа",
+    });
   }
   res.status(200).json({
     success: true,

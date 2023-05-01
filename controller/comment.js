@@ -1,5 +1,4 @@
 const Comments = require("../model/comment");
-const CustomError = require("../utils/CustomError");
 const asyncHandler = require("../middleware/asyncHandler");
 const Post = require("../model/posts");
 exports.getComments = asyncHandler(async (req, res, next) => {
@@ -14,15 +13,24 @@ exports.getComments = asyncHandler(async (req, res, next) => {
 exports.createComment = asyncHandler(async (req, res, next) => {
   const { Comment } = req.body;
   if (!Comment) {
-    throw new CustomError("Comment is value null", 400);
+    res.status(401).json({
+      success: false,
+      data: "Алдаа гарлаа",
+    });
   }
   const user = req.user;
   if (!req.user) {
-    throw new CustomError(`Please log in again`, 400);
+    res.status(401).json({
+      success: false,
+      data: "Алдаа гарлаа",
+    });
   }
   const post = await Post.findById(req.params.id);
   if (!post) {
-    throw new CustomError(`No post found`, 400);
+    res.status(401).json({
+      success: false,
+      data: "Алдаа гарлаа",
+    });
   }
   let data = {
     Comment,

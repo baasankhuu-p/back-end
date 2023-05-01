@@ -1,5 +1,4 @@
 const User = require("../model/users");
-const CustomError = require("../utils/CustomError");
 const asyncHandler = require("../middleware/asyncHandler");
 exports.getUsers = asyncHandler(async (req, res, next) => {
   const user = await User.find();
@@ -22,16 +21,25 @@ exports.createUser = asyncHandler(async (req, res, next) => {
 exports.loginUser = asyncHandler(async (req, res, next) => {
   const { email, password } = req.body;
   if (!email || !password) {
-    throw new CustomError("Email or password in null", 400);
+    res.status(401).json({
+      success: false,
+      data: "Алдаа гарлаа",
+    });
   }
   const user = await User.findOne({ email }).select("+password");
   if (!user) {
-    throw new CustomError("Email or password incorrect !", 400);
+    res.status(401).json({
+      success: false,
+      data: "Алдаа гарлаа",
+    });
   }
 
   const ok = await user.CheckPass(password);
   if (!ok) {
-    throw new CustomError("Email or password incorrect", 400);
+    res.status(401).json({
+      success: false,
+      data: "Алдаа гарлаа",
+    });
   }
   res.status(200).json({
     success: true,
@@ -43,7 +51,10 @@ exports.loginUser = asyncHandler(async (req, res, next) => {
 exports.getUser = asyncHandler(async (req, res, next) => {
   const user = await User.findById(req.params.id);
   if (!user) {
-    CustomError("User not found ", 404);
+    res.status(401).json({
+      success: false,
+      data: "Алдаа гарлаа",
+    });
   }
   res.status(200).json({
     success: true,
