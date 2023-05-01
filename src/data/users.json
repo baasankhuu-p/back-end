@@ -1,0 +1,38 @@
+[
+    {
+        "_id": "63e762666a792acb46d3a361",
+        "photo": "auth_63e762666a792acb46d3a361.png",
+        "username": "Baasankhuu Purev",
+        "email": "auth1@gmail.com",
+        "phone": "99999901",
+        "password": "12345678",
+        "about": "🚀 Developer and designer 💜 Built 4K+ Design"
+    },
+    {
+        "_id": "63e762666a792acb46d3a362",
+        "photo": "auth_63e762666a792acb46d3a362.png",
+        "username": "Youmans Pettersen",
+        "email": "auth2@gmail.com",
+        "phone": "99999902",
+        "password": "12345678",
+        "about": "🚀 Developer and designer 💜 Built 50K+ Design"
+    },
+    {
+        "_id": "63e762666a792acb46d3a363",
+        "photo": "auth_63e762666a792acb46d3a363.png",
+        "username": "Ziemer Karlsson",
+        "email": "auth3@gmail.com",
+        "phone": "99999903",
+        "password": "12345678",
+        "about": "🚀 AI developer 💜 Built 59K+ Design"
+    },
+    {
+        "_id": "63e762666a792acb46d3a364",
+        "photo": "auth_63e762666a792acb46d3a364.png",
+        "username": "Cameron Cluts",
+        "email": "auth4@gmail.com",
+        "phone": "99999904",
+        "password": "12345678",
+        "about": "🚀 Graphic designer 💜 Built 60K+ Design"
+    }
+]

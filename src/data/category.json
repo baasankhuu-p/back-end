@@ -1,0 +1,38 @@
+[
+    {
+        "Name": "UI/UX Design",
+        "_id": "63e762666a792acb46d3a320"
+    },
+    {
+        "Name": "Mobile application development.",
+        "_id": "63e762666a792acb46d3a321"
+    },
+    {
+        "Name": "AI",
+        "_id": "63e762666a792acb46d3a319"
+    },
+    {
+        "Name": "Data science.",
+        "_id": "63e762666a792acb46d3a322"
+    },
+    {
+        "Name": "DevOps.",
+        "_id": "63e762666a792acb46d3a323"
+    },
+    {
+        "Name": "Cloud computing.",
+        "_id": "63e762666a792acb46d3a324"
+    },
+    {
+        "Name": "Wearables software development.",
+        "_id": "63e762666a792acb46d3a325"
+    },
+    {
+        "Name": "Desktop software development",
+        "_id": "63e762666a792acb46d3a326"
+    },
+    {
+        "Name": "Video game development.",
+        "_id": "63e762666a792acb46d3a327"
+    }
+]
