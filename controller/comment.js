@@ -50,7 +50,10 @@ exports.getComment = asyncHandler(async (req, res, next) => {
   });
   let data = [];
   if (!comment && comment.length > 0) {
-    CustomError("Comment not found ", 404);
+    res.status(401).json({
+      success: false,
+      data: "Алдаа гарлаа",
+    });
   }
 
   res.status(200).json({
